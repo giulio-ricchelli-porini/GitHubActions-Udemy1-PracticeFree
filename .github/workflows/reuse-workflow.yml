@@ -1,0 +1,10 @@
+name: "Reuse workflow"
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+jobs:
+  reuse:
+    uses: ./.github/workflows/push-workflow_call.yml
+    with:
+      name: ${{ inputs.name }}
