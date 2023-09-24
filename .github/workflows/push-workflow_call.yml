@@ -8,7 +8,7 @@ on:
         type: string
 jobs:
   push:
-    if: github.event_name != 'workflow_call'
+    if: inputs.name == ''
     runs-on: windows-latest
     defaults:
       run:
@@ -42,8 +42,10 @@ jobs:
             echo ${{ vars.TEST_ENV_VAR }}
             echo $INTERMEDIATOR_TEST_ENV_VAR
   workflow_call:
-    if: github.event_name == 'workflow_call'
+    if: inputs.name != ''
     runs-on: ubuntu-latest
     steps:
       - name: "Say hi!"
-        run: echo "Hi ${{ inputs.name }}!"
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Hi ${{ inputs.name }}!!!"
