@@ -5,7 +5,7 @@ on:
   workflow_call:
     inputs:
       name:
-        description: "The person to say hi"
+        type: string
 jobs:
   push:
     if: github.event_name != 'workflow_call'
