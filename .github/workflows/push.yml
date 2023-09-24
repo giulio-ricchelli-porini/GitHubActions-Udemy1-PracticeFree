@@ -13,7 +13,7 @@ jobs:
       - name: "Echo environment variable from environment 'myenv'"
         run: |
           echo "TEST_VAR value with $ notation:"
-          echo "'echo $TEST_VAR' would not work because the environment variable in 'myenv' is accessible only from vars!"
+          echo "'echo \$TEST_VAR' would not work because the environment variable in 'myenv' is accessible only from vars!"
           echo $TEST_VAR
       - name: "Echo the same variable from context from environment 'myenv'"
         env:
