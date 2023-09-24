@@ -11,5 +11,11 @@ jobs:
     environment: myenv
     steps:
       - name: "Echo environment variable from environment"
-        run: echo "TEST_VAR value: $TEST_VAR"
+        run: |
+          echo "TEST_VAR value with $ notation:"
+          echo $TEST_VAR
+      - name: "Echo the same variable from context from environment"
+        run: |
+          echo "TEST_VAR value with context notation:"
+          echo ${{ vars.TEST_VAR }}
   
