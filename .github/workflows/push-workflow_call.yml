@@ -1,4 +1,4 @@
-name: "Push handler"
+name: "Push  handler"
 on:
   push:
     branches: [main]
