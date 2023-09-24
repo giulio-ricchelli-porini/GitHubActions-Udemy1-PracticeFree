@@ -47,6 +47,6 @@ jobs:
     steps:
       - run: echo "${{ toJson(github.event) }}"
       - name: "Firstly, check the event name"
-        run: echo "Event name: ${{ github.event_name }}"
+        run: echo "Event name ${{ github.event_name }}"
       - name: "Say hi!"
         run: echo "Hi ${{ inputs.name }}!!!"
