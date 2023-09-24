@@ -1,0 +1,15 @@
+name: "Push handler"
+on:
+  push:
+    branches: [main]
+jobs:
+  first:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    environment: myenv
+    steps:
+      - name: "Echo environment variable from environment"
+        run: echo "TEST_VAR value: $TEST_VAR"
+  
