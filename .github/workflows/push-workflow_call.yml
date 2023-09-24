@@ -45,7 +45,8 @@ jobs:
     if: inputs.name != ''
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ toJson(github.event) }}
+      - name: "Firstly, check the event name"
+        run: "Event name: ${{ github.event_name }}"
       - name: "Say hi!"
-        run: |
-          echo "Event name: ${{ github.event_name }}"
-          echo "Hi ${{ inputs.name }}!!!"
+        run: echo "Hi ${{ inputs.name }}!!!"
