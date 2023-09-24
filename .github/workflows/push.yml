@@ -10,16 +10,29 @@ jobs:
         shell: bash
     environment: myenv
     steps:
+      - name: "Echo environment variable from repository"
+        run: |
+          echo "TEST_REPO_VAR value with $ notation:"
+          echo "'echo \$TEST_REPO_VAR' doesn't work because the environment variable in the repo is accessible only from vars:"
+          echo $TEST_REPO_VAR
+      - name: "Echo the same variable from context from repository"
+        env:
+          INTERMEDIATOR_TEST_ENV_VAR: ${{ vars.TEST_REPO_VAR }}
+        run: |
+          echo "TEST_REPO_VAR value with context notation:"
+          echo |
+            echo ${{ vars.TEST_REPO_VAR }}
+            echo $INTERMEDIATOR_TEST_ENV_VAR
       - name: "Echo environment variable from environment 'myenv'"
         run: |
-          echo "TEST_VAR value with $ notation:"
-          echo "'echo \$TEST_VAR' would not work because the environment variable in 'myenv' is accessible only from vars!"
-          echo $TEST_VAR
+          echo "TEST_ENV_VAR value with $ notation:"
+          echo "'echo \$TEST_ENV_VAR' doesn't work because the environment variable in 'myenv' is accessible only from vars:"
+          echo $TEST_ENV_VAR
       - name: "Echo the same variable from context from environment 'myenv'"
         env:
-          INTERMEDIATOR_TEST_VAR: ${{ vars.TEST_VAR }}
+          INTERMEDIATOR_TEST_ENV_VAR: ${{ vars.TEST_ENV_VAR }}
         run: |
-          echo "TEST_VAR value with context notation:"
+          echo "TEST_ENV_VAR value with context notation:"
           echo |
-            echo ${{ vars.TEST_VAR }}
-            echo $INTERMEDIATOR_TEST_VAR
+            echo ${{ vars.TEST_ENV_VAR }}
+            echo $INTERMEDIATOR_TEST_ENV_VAR
