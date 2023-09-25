@@ -9,3 +9,5 @@ jobs:
         run: ls
       - name: "Run composite action"
         uses: ./.github/actions/composite-action
+        with:
+          repo-secret: ${{ secrets.REPO_SECRET }}
