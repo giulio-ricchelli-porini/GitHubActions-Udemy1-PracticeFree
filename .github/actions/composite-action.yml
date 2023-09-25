@@ -1,0 +1,13 @@
+name: "Simple composite action"
+description: "Test basic features"
+runs:
+  using: "composite"
+  steps:
+    - name: "ls"
+      - run: ls
+    - name: "Checkout repo"
+      uses: actions/checkout@v3
+    - name: "ls after checkout"
+      run: ls
+    - name: "Get repo secret"
+      run: echo ${{ secrets.REPO_SECRET }}
