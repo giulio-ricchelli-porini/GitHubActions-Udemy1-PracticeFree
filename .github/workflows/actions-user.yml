@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Run composite action"
-        uses: ./.github/actions/composite-action.yml
+        uses: ./.github/actions/composite-action
