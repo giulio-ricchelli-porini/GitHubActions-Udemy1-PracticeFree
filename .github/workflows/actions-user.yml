@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: "Run composite action"
-        uses: ./.github/actions/composite-action
+        uses: actions/composite-action@v1
