@@ -1,0 +1,8 @@
+name: "Use custom actions"
+on: workflow_dispatch
+jobs:
+  composite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run composite action"
+        uses: ./.github/actions/composite-action.yml
