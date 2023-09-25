@@ -19,4 +19,4 @@ runs:
       shell: bash
       run: |
          echo ${{ inputs.repo-secret }}
-         echo $INPUT_REPO-SECRET
+         echo "$INPUT_REPO-SECRET"
