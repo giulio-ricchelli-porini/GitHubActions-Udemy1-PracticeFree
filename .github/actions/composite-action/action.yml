@@ -17,4 +17,6 @@ runs:
       run: ls
     - name: "Get repo secret"
       shell: bash
-      run: echo ${{ inputs.repo-secret }}
+      run: |
+         echo ${{ inputs.repo-secret }}
+         echo $INPUT_REPO-SECRET }}
