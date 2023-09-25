@@ -1,5 +1,9 @@
 name: "Simple composite action"
 description: "Test basic features"
+inputs:
+   repo-secret:
+     description: "The repo secret to echo"
+     required: true
 runs:
   using: "composite"
   steps:
@@ -13,4 +17,6 @@ runs:
       run: ls
     - name: "Get repo secret"
       shell: bash
-      run: echo ${{ secrets.REPO_SECRET }}
+      run: |
+        echo ${{ inputs.repo-secret }}
+        echo $INPUT_REPO_SECRET
