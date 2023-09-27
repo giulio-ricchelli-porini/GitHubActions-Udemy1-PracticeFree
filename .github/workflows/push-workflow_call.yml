@@ -41,6 +41,10 @@ jobs:
           echo |
             echo ${{ vars.TEST_ENV_VAR }}
             echo $INTERMEDIATOR_TEST_ENV_VAR
+      - name: "Echo event name"
+        run: |
+          echo $GITHUB_EVENT_NAME
+          echo ${{ github.event_name }}
   workflow_call:
     if: inputs.name != ''
     runs-on: ubuntu-latest
