@@ -15,11 +15,11 @@ jobs:
       - name: "Set output"
         id: stepper
         run: echo "outval=${{ inputs.name }}" >> $GITHUB_OUTPUT
-      - name: "Echo envvar in both notations"
+      - name: "Echo envvar in both notations (both works!!!)"
         run: |
           echo "$envvar"
           echo "${{ env.envvar }}"
-      - name: "Echo outval in both notations"
+      - name: "Echo outval in both notations (obviously the output is not available as an environment variable...)"
         run: |
           echo "$outval"
           echo "${{ steps.stepper.outputs.outval }}"
