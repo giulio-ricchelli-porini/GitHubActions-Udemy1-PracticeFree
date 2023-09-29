@@ -23,4 +23,10 @@ jobs:
         run: |
           echo "$outval"
           echo "${{ steps.stepper.outputs.outval }}"
-  
+      - name: "Invoke action from other repo"
+        uses: giulio-ricchelli-porini/GitHubActions-Udemy2-PracticeFree2/.github/actions/docker-action@main
+        with:
+          name: ${{ env.envvar }}
+          secret: ${{ env.envvar }}
+        env:
+          OTHER_ENV_VAR: eccolaaaaaaaa 
