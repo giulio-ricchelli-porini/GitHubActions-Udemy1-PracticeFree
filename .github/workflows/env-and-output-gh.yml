@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        options:
+          - cano
+          - nero
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Set env var"
+        run: echo "envvar=${{ inputs.name }}" >> $GITHUB_ENV
+      - name: "Set output"
+        id: stepper
+        run: echo "outval=${{ inputs.name }}" >> $GITHUB_OUTPUT
+      - name: "Echo envvar in both notations"
+        run: |
+          echo "$envvar"
+          echo "${{ env.envvar }}"
+      - name: "Echo outval in both notations"
+        run: |
+          echo "$outval"
+          echo "${{ stepper.outptus.outval }}"
+  
