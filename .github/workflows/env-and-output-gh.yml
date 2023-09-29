@@ -22,5 +22,5 @@ jobs:
       - name: "Echo outval in both notations"
         run: |
           echo "$outval"
-          echo "${{ stepper.outptus.outval }}"
+          echo "${{ steps.stepper.outptus.outval }}"
   
